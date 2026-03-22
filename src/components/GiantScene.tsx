@@ -236,11 +236,9 @@ export default function GiantScene() {
   return (
     <Canvas
       camera={{ position: [0, 1, 8], fov: 65 }}
-      gl={{ preserveDrawingBuffer: true, antialias: true }}
-      style={{ width: "100%", height: "100%", touchAction: "none" }}
+      gl={{ preserveDrawingBuffer: true, antialias: true, alpha: true }}
+      style={{ width: "100%", height: "100%", touchAction: "none", background: "transparent" }}
     >
-      <color attach="background" args={["#0d0800"]} />
-      <fog attach="fog" args={["#0d0800", 8, 25]} />
       <ambientLight intensity={0.2} />
       <directionalLight position={[5, 10, 5]} intensity={0.5} color="#fbbf24" />
       <GiantEye />

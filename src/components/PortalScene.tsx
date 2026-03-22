@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useMemo } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -183,23 +183,14 @@ function FloatingDebris({ count = 200 }) {
   );
 }
 
-function EnvironmentLight() {
-  const { scene } = useThree();
-  useMemo(() => {
-    scene.fog = new THREE.FogExp2("#030818", 0.08);
-  }, [scene]);
-  return null;
-}
 
 export default function PortalScene() {
   return (
     <Canvas
       camera={{ position: [0, 0.5, 4], fov: 70 }}
-      gl={{ preserveDrawingBuffer: true, antialias: true }}
-      style={{ width: "100%", height: "100%", touchAction: "none" }}
+      gl={{ preserveDrawingBuffer: true, antialias: true, alpha: true }}
+      style={{ width: "100%", height: "100%", touchAction: "none", background: "transparent" }}
     >
-      <color attach="background" args={["#030818"]} />
-      <EnvironmentLight />
       <ambientLight intensity={0.15} />
       <pointLight position={[0, 0.5, -2]} color="#06b6d4" intensity={2} distance={10} />
       <pointLight position={[-3, 2, 1]} color="#7c3aed" intensity={0.5} distance={8} />

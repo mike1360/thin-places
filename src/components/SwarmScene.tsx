@@ -139,11 +139,9 @@ export default function SwarmScene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 75 }}
-      gl={{ preserveDrawingBuffer: true, antialias: true }}
-      style={{ width: "100%", height: "100%", touchAction: "none" }}
+      gl={{ preserveDrawingBuffer: true, antialias: true, alpha: true }}
+      style={{ width: "100%", height: "100%", touchAction: "none", background: "transparent" }}
     >
-      <color attach="background" args={["#050008"]} />
-      <fog attach="fog" args={["#050008", 5, 15]} />
       <ambientLight intensity={0.1} />
       <Particles count={2000} />
       <FloatingOrbs />
