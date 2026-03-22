@@ -34,6 +34,17 @@ const stations = [
     accent: "text-amber-400",
     borderAccent: "hover:border-amber-500/30",
   },
+  {
+    id: "gallery",
+    number: "04",
+    title: "The Gallery",
+    subtitle: "True AR · Place Art",
+    description:
+      "Detect real surfaces and place animated artwork on your walls. Walk around it. Build your own exhibition in any space.",
+    color: "from-white/10 to-white/5",
+    accent: "text-white",
+    borderAccent: "hover:border-white/30",
+  },
 ];
 
 export default function Home() {
@@ -81,7 +92,7 @@ export default function Home() {
           Stations
         </p>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {stations.map((station) => (
             <Link
               key={station.id}
